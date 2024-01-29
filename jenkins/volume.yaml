@@ -40,7 +40,10 @@ spec:
           operator: In
           # Important Note: Replace 'worker-node01' with any one of your cluster worker nodes hostname.
           values:
-          - worker-node01
+          # Default value:
+          # - worker-node01
+          # updated for minikube
+          - minikube
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
