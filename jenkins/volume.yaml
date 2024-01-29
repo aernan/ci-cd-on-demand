@@ -20,8 +20,18 @@ spec:
     storage: 10Gi
   accessModes:
   - ReadWriteOnce
-  local:
-    path: /mnt
+  # -- Default config --
+  # this will break on minikube restart
+  # local:
+  #   path: /mnt
+  # -- useing hostPath with hard path --
+  # hostPath:
+  #   path: /Users/aernan/workspace/ci-cd-on-demand/jenkins/persistent_volume
+  # -- using hostPath with environemtn variable --
+  # must set environment variable for substition
+  # export REPO_PATH="/Users/aernan/workspace/ci-cd-on-demand"
+  hostPath:
+    path: ${REPO_PATH}/jenkins/persistent_volume
   nodeAffinity:
     required:
       nodeSelectorTerms:
